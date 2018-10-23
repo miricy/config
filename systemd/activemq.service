@@ -1,0 +1,16 @@
+[Unit]
+Description=Apache ActiveMQ broker
+After=syslog.target network.target
+
+[Service]
+PrivateTmp=true
+Type=simple
+Environment=JAVA_HOME=/usr/jvm/lib/latest
+ExecStart=/work/run/kapua-broker-1.0.0-SNAPSHOT/bin/activemq console
+ExecStop=/work/run/kapua-broker-1.0.0-SNAPSHOT/bin/activemq stop
+#User=alva
+#Group=alva
+WorkingDirectory=/work/run/kapua-broker-1.0.0-SNAPSHOT
+[Install]
+WantedBy=multi-user.target
+

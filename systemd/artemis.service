@@ -1,0 +1,16 @@
+[Unit]
+Description=Apache Artemis broker
+After=syslog.target network.target
+
+[Service]
+PrivateTmp=true
+Type=simple
+#Environment=JAVA_HOME=/usr/jvm/lib/latest
+ExecStart=/work/run/apache-artemis-2.4.0/work/bin/artemis run
+ExecStop=/work/run/apache-artemis-2.4.0/work/bin/artemis stop
+#User=alva
+#Group=alva
+WorkingDirectory=/work/run/apache-artemis-2.4.0/work
+[Install]
+WantedBy=multi-user.target
+

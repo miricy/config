@@ -1,0 +1,18 @@
+# Systemd unit file for default tomcat
+# 
+# To create clones of this service:
+# DO NOTHING, use tomcat@.service instead.
+
+[Unit]
+Description=wildlyFly Web Application Container for keycloak
+After=syslog.target network.target
+
+[Service]
+Type=simple
+Environment="NAME="
+ExecStart=/work/run/keycloak-4.6.0.Final-SNAPSHOT/bin/standalone.sh
+User=alva
+Group=alva
+WorkingDirectory=/work/run/keycloak-4.6.0.Final-SNAPSHOT/
+[Install]
+WantedBy=multi-user.target
